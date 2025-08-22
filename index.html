@@ -138,7 +138,8 @@ footer {
 <div class="container">
   <h1 data-text="𝖘𝖎𝖙𝖎𝖔𝖘 𝖚𝖗𝖎𝖊𝖑">𝖘𝖎𝖙𝖎𝖔𝖘 𝖚𝖗𝖎𝖊𝖑</h1>
   
-  <img class="pfp" src="https://i.ibb.co/wK8B2qc/uriel-pfp.png" alt="Uriel Foto" />
+  <!-- Foto de Natanael Cano -->
+  <img class="pfp" src="https://i.ibb.co/YbShY2c/natanael-cano.jpg" alt="Natanael Cano" />
 
   <!-- Botón grande solo con logo -->
   <button id="playBtn">
@@ -154,8 +155,9 @@ footer {
   <div class="description">"El éxito es la suma de pequeños esfuerzos."</div>
 </div>
 
+<!-- Música (sube tu mp3 al repositorio como musica.mp3) -->
 <audio id="bgMusic" loop>
-  <source src="https://archive.org/download/intro-natanael-cano/intro-natanael-cano.mp3" type="audio/mpeg">
+  <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -168,15 +170,13 @@ canvas.height = window.innerHeight;
 const particles = [];
 const colors = ['#ff0000','#ff8000','#ffff00','#ff0080','#00ffff'];
 
-function random(min,max){ return Math.random()*(max-min)+min; }
-
 for(let i=0;i<150;i++){
   particles.push({
-    x: random(0,canvas.width),
-    y: random(0,canvas.height),
-    r: random(1,4),
-    dx: random(-1.5,1.5),
-    dy: random(-1.5,1.5),
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    r: Math.random()*4+1,
+    dx: Math.random()*3-1.5,
+    dy: Math.random()*3-1.5,
     color: colors[Math.floor(Math.random()*colors.length)]
   });
 }
@@ -201,7 +201,10 @@ function draw(){
 }
 draw();
 
-window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
+window.addEventListener('resize',()=>{
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+});
 
 // Música con botón Spotify
 const music = document.getElementById('bgMusic');
